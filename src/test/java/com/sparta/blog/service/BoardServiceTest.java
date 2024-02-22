@@ -45,6 +45,7 @@ public class BoardServiceTest {
         BoardResponseDto boardResponseDto = boardService.createBoard(user, boardRequestDto);
         //then
         assertEquals(boardRequestDto.getTitle(),boardResponseDto.getTitle());
+
     }
 
 }
