@@ -99,6 +99,7 @@ public class BoardServiceTest {
         //then
         assertThrows(org.springframework.security.access.AccessDeniedException.class, () -> boardService.updateBoard(user2, boardIdOfUser1, boardRequestDto));
         assertThrows(org.springframework.security.access.AccessDeniedException.class, () -> boardService.deleteBoard(user2, boardIdOfUser1));
+
     }
     @Test
     @Order(4)
