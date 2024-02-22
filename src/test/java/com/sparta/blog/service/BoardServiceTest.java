@@ -32,7 +32,6 @@ public class BoardServiceTest {
     @DisplayName("게시물 생성")
     void createBoard(){
         //given
-        Long boardId = 100L;
         BoardRequestDto boardRequestDto = new BoardRequestDto();
         boardRequestDto.setTitle("title");
         boardRequestDto.setContent("content");
@@ -45,6 +44,20 @@ public class BoardServiceTest {
         BoardResponseDto boardResponseDto = boardService.createBoard(user, boardRequestDto);
         //then
         assertEquals(boardRequestDto.getTitle(),boardResponseDto.getTitle());
+    }
+    @Test
+    @DisplayName("게시물 수정")
+    void updateBoard(){
+        //given
+        BoardRequestDto boardRequestDto = new BoardRequestDto();
+        boardRequestDto.setTitle("title");
+        boardRequestDto.setContent("content");
+        User user = new User();
+        BoardService boardService = new BoardService(boardRepository, commentRepository);
+        //when
+
+
+        //then
 
     }
 
