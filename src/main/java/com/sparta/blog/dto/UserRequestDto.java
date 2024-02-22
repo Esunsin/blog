@@ -13,7 +13,7 @@ public class UserRequestDto {
     private String email;
 
     @NotBlank(message = "비밀번호는 필수로 입력해야 합니다.")
-    @Pattern(regexp = "^[a-zA-Z0-9]{8,15}$")
+    @Pattern(regexp = "^[a-zA-Z0-9]{0,15}$")
     private String password;
 
     @NotBlank(message = "이름은 필수로 입력해야 합니다.")

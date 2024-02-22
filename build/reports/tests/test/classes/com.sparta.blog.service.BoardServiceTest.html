@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">4</div>
+<div class="counter">1</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.401s</div>
+<div class="counter">0.656s</div>
 <p>duration</p>
 </div>
 </td>
@@ -66,6 +66,9 @@
 <li>
 <a href="#tab1">Standard output</a>
 </li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
 </ul>
 <div id="tab0" class="tab">
 <h2>Tests</h2>
@@ -81,25 +84,7 @@
 <tr>
 <td class="success">게시물 생성</td>
 <td class="success">createBoard()</td>
-<td class="success">0.335s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">게시물 삭제</td>
-<td class="success">deleteBoard()</td>
-<td class="success">0.021s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">작성자가 아닌 사람이 삭제,수정하려고 하면 예외 발생</td>
-<td class="success">updateAndDeleteBoardByDifferentUser()</td>
-<td class="success">0.019s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">게시물 제목 및 내용 수정</td>
-<td class="success">updateBoard()</td>
-<td class="success">0.026s</td>
+<td class="success">0.656s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -107,235 +92,17 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>14:56:58.461 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.sparta.blog.service.BoardServiceTest]: BoardServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-14:56:58.524 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.sparta.blog.BlogApplication for test class com.sparta.blog.service.BoardServiceTest
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.2.2)
-
-2024-02-22T14:56:58.718+09:00  INFO 17912 --- [    Test worker] c.sparta.blog.service.BoardServiceTest   : Starting BoardServiceTest using Java 17.0.5 with PID 17912 (started by jeongjinchan in /Users/jeongjinchan/Desktop/study/내배캠/팀과제/spring/sparta-spring-blog)
-2024-02-22T14:56:58.719+09:00  INFO 17912 --- [    Test worker] c.sparta.blog.service.BoardServiceTest   : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2024-02-22T14:56:59.088+09:00  INFO 17912 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-02-22T14:56:59.121+09:00  INFO 17912 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 3 JPA repository interfaces.
-2024-02-22T14:56:59.422+09:00  INFO 17912 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
-2024-02-22T14:56:59.429+09:00  INFO 17912 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-02-22T14:56:59.429+09:00  INFO 17912 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-22T14:56:59.465+09:00  INFO 17912 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-02-22T14:56:59.465+09:00  INFO 17912 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 736 ms
-2024-02-22T14:56:59.544+09:00  INFO 17912 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-02-22T14:56:59.575+09:00  INFO 17912 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-02-22T14:56:59.593+09:00  INFO 17912 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-02-22T14:56:59.710+09:00  INFO 17912 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-02-22T14:56:59.726+09:00  INFO 17912 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-02-22T14:56:59.887+09:00  INFO 17912 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@58b5f7d2
-2024-02-22T14:56:59.889+09:00  INFO 17912 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-02-22T14:57:00.510+09:00  INFO 17912 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-02-22T14:57:00.588+09:00  INFO 17912 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-02-22T14:57:00.882+09:00  WARN 17912 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-02-22T14:57:01.016+09:00  INFO 17912 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3e60be48, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@20a533b, org.springframework.security.web.context.SecurityContextHolderFilter@320ca97c, org.springframework.security.web.header.HeaderWriterFilter@75a6cdb, org.springframework.web.filter.CorsFilter@5db6083b, org.springframework.security.web.authentication.logout.LogoutFilter@126ae0ca, com.sparta.blog.jwt.JwtAuthorizationFilter@624268ab, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3979c6e8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6fb3d3bb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3db48e6, org.springframework.security.web.session.SessionManagementFilter@6adc90e9, org.springframework.security.web.access.ExceptionTranslationFilter@77f1026e, org.springframework.security.web.access.intercept.AuthorizationFilter@58e0f079]
-2024-02-22T14:57:01.138+09:00  INFO 17912 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 52498 (http) with context path ''
-2024-02-22T14:57:01.144+09:00  INFO 17912 --- [    Test worker] c.sparta.blog.service.BoardServiceTest   : Started BoardServiceTest in 2.551 seconds (process running for 3.098)
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.info,
-        u1_0.password,
-        u1_0.username 
-    from
-        user u1_0 
-    where
-        u1_0.id=?
-Hibernate: 
-    /* insert for
-        com.sparta.blog.entity.Board */insert 
-    into
-        boards (content, created_at, modified_at, title, user_id) 
-    values
-        (?, ?, ?, ?, ?)
-createBoard = com.sparta.blog.dto.BoardResponseDto@1b1434ce
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.info,
-        u1_0.password,
-        u1_0.username 
-    from
-        user u1_0 
-    where
-        u1_0.id=?
-Hibernate: 
-    select
-        b1_0.board_id,
-        b1_0.content,
-        b1_0.created_at,
-        b1_0.modified_at,
-        b1_0.title,
-        b1_0.user_id 
-    from
-        boards b1_0 
-    where
-        b1_0.board_id=?
-Hibernate: 
-    select
-        b1_0.user_id,
-        b1_0.board_id,
-        b1_0.content,
-        b1_0.created_at,
-        b1_0.modified_at,
-        b1_0.title 
-    from
-        boards b1_0 
-    where
-        b1_0.user_id=?
-Hibernate: 
-    /* update
-        for com.sparta.blog.entity.Board */update boards 
-    set
-        content=?,
-        modified_at=?,
-        title=?,
-        user_id=? 
-    where
-        board_id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.info,
-        u1_0.password,
-        u1_0.username 
-    from
-        user u1_0 
-    where
-        u1_0.id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.info,
-        u1_0.password,
-        u1_0.username 
-    from
-        user u1_0 
-    where
-        u1_0.id=?
-Hibernate: 
-    select
-        b1_0.board_id,
-        b1_0.content,
-        b1_0.created_at,
-        b1_0.modified_at,
-        b1_0.title,
-        b1_0.user_id 
-    from
-        boards b1_0 
-    where
-        b1_0.board_id=?
-Hibernate: 
-    select
-        b1_0.user_id,
-        b1_0.board_id,
-        b1_0.content,
-        b1_0.created_at,
-        b1_0.modified_at,
-        b1_0.title 
-    from
-        boards b1_0 
-    where
-        b1_0.user_id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.info,
-        u1_0.password,
-        u1_0.username 
-    from
-        user u1_0 
-    where
-        u1_0.id=?
-Hibernate: 
-    select
-        b1_0.board_id,
-        b1_0.content,
-        b1_0.created_at,
-        b1_0.modified_at,
-        b1_0.title,
-        b1_0.user_id 
-    from
-        boards b1_0 
-    where
-        b1_0.board_id=?
-Hibernate: 
-    select
-        b1_0.user_id,
-        b1_0.board_id,
-        b1_0.content,
-        b1_0.created_at,
-        b1_0.modified_at,
-        b1_0.title 
-    from
-        boards b1_0 
-    where
-        b1_0.user_id=?
-Hibernate: 
-    select
-        u1_0.id,
-        u1_0.email,
-        u1_0.info,
-        u1_0.password,
-        u1_0.username 
-    from
-        user u1_0 
-    where
-        u1_0.id=?
-Hibernate: 
-    select
-        b1_0.board_id,
-        b1_0.content,
-        b1_0.created_at,
-        b1_0.modified_at,
-        b1_0.title,
-        b1_0.user_id 
-    from
-        boards b1_0 
-    where
-        b1_0.board_id=?
-Hibernate: 
-    select
-        b1_0.user_id,
-        b1_0.board_id,
-        b1_0.content,
-        b1_0.created_at,
-        b1_0.modified_at,
-        b1_0.title 
-    from
-        boards b1_0 
-    where
-        b1_0.user_id=?
-Hibernate: 
-    select
-        cl1_0.board_id,
-        cl1_0.id,
-        cl1_0.content,
-        cl1_0.user_id 
-    from
-        comments cl1_0 
-    where
-        cl1_0.board_id=?
-Hibernate: 
-    /* delete for com.sparta.blog.entity.Board */delete 
-    from
-        boards 
-    where
-        board_id=?
+<pre>save.getId() = title
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>WARNING: A Java agent has been loaded dynamically (/Users/jeongjinchan/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.11/f9cb566608fbac6bc7bf54901a7aa11543a989ee/byte-buddy-agent-1.14.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
 </pre>
 </span>
 </div>
@@ -347,7 +114,7 @@ Hibernate:
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.5</a> at 2024. 2. 22. 오후 2:57:01</p>
+<a href="http://www.gradle.org">Gradle 8.5</a> at 2024. 2. 22. 오후 6:40:13</p>
 </div>
 </div>
 </body>

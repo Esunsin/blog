@@ -21,19 +21,18 @@ import java.util.stream.Collectors;
 @Transactional(readOnly = true)
 public class BoardService {
     private final BoardRepository boardRepository;
-    private final UserRepository userRepository;
     private final CommentRepository commentRepository;
 
     @Transactional
     public BoardResponseDto createBoard(User user, BoardRequestDto requestDto) {
-        return new BoardResponseDto(boardRepository.save(new Board(requestDto, user)));
+        Board save = boardRepository.save(new Board(requestDto, user));
+        return new BoardResponseDto(save);
     }
 
 
     @Transactional
     public BoardResponseDto updateBoard(User user, Long boardId, BoardRequestDto requestDto) {
-        Long userId = user.getId();
-        Board board = getBoardByUserId(userId, boardId);
+        Board board = getBoardByUserId(user, boardId);
         board.update(requestDto);
 
         return new BoardResponseDto(board);
@@ -42,8 +41,7 @@ public class BoardService {
 
     @Transactional
     public String deleteBoard(User user, Long id) {
-        Long userId = user.getId();
-        Board board = getBoardByUserId(userId, id);
+        Board board = getBoardByUserId(user, id);
 
         boardRepository.delete(board);
 
@@ -69,8 +67,7 @@ public class BoardService {
                 .collect(Collectors.toList());
         return new BoardListResponseDto(board, commentList);
     }
-    private Board getBoardByUserId(Long userId,Long boardId){
-        User user = userRepository.findById(userId).orElseThrow();
+    private Board getBoardByUserId(User user,Long boardId){
         Board board = boardRepository.findById(boardId).orElseThrow();
         List<Board> boards = user.getBoards();
         if(!boards.contains(board)) {
