@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 public class BoardService {
     private final BoardRepository boardRepository;
     private final CommentRepository commentRepository;
+    private final UserRepository userRepository;
 
     @Transactional
     public BoardResponseDto createBoard(User user, BoardRequestDto requestDto) {
@@ -67,10 +68,10 @@ public class BoardService {
                 .collect(Collectors.toList());
         return new BoardListResponseDto(board, commentList);
     }
-    private Board getBoardByUserId(User user,Long boardId){
+    public Board getBoardByUserId(User user,Long boardId){
+        User findUser = userRepository.findByEmail(user.getEmail()).orElseThrow();
         Board board = boardRepository.findById(boardId).orElseThrow();
-        List<Board> boards = user.getBoards();
-        if(!boards.contains(board)) {
+        if(!board.getUser().equals(findUser)) {
             throw new AccessDeniedException("작성자만 삭제/수정 할 수 있습니다.");
         }
         return board;

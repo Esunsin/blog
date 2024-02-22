@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.sparta.blog.entity.BoardTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-02-22T10:49:36" hostname="jeongjinchan-ui-MacBookPro.local" time="0.01">
-  <properties/>
-  <testcase name="수정" classname="com.sparta.blog.entity.BoardTest" time="0.01"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
